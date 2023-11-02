@@ -1,0 +1,5 @@
+# docker exec -it todo-backend-mongo-1 mongosh
+# db.auth("the_username")
+# the_password
+# use the_database
+# db.todos.insertOne({text: "Increase the number of tools in my toolbelt", done: false})
