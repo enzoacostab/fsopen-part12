@@ -1,6 +1,21 @@
 version: '3.8'
 
 services:
+  server:
+    image: server
+    build:
+      context: .
+      dockerfile: dev.dockerfile 
+    volumes:
+      - ./:/usr/src/app 
+    ports:
+      - 3000:3000
+    depends_on:
+      - mongo
+      - redis
+    environment:
+      - MONGO_URL=mongodb://the_username:the_password@mongo:27017/the_database
+      - REDIS_URL=redis://redis:6379
   mongo:
     image: mongo
     ports:
