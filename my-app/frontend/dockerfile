@@ -1,0 +1,12 @@
+FROM node:16
+
+WORKDIR /usr/src/app
+
+COPY ./frontend .
+
+RUN npm ci
+
+RUN npm install -g serve
+
+CMD npm run build && serve -s build
+

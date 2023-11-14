@@ -6,7 +6,7 @@ COPY . .
 
 RUN npm ci
 
-ENV REACT_APP_BACKEND_URL='http://localhost:3000/' CI='test'
+ENV REACT_APP_BACKEND_URL='http://localhost:5000/' CI='test'
 
 RUN npm run test
 

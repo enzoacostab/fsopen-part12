@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  library-front:
+    image: library-front
+    build: 
+      context: .
+      dockerfile: /frontend/dockerfile
+      args:
+        - TARGET_DIR=/frontend
+    ports:
+      - 5001:3000
+    depends_on:
+      - library-back
+
+  library-back:
+    image: library-back
+    build: 
+      context: .
+      dockerfile: /backend/dockerfile
+      args:
+        - TARGET_DIR=/backend
+    volumes:
+      - ./backend:/usr/src/server
+    ports:
+      - 4000:4000
